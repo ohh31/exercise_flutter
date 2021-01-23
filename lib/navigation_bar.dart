@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'navigation_logo.dart';
+
 class NavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -8,6 +10,10 @@ class NavigationBar extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
+            NavBarLogo(),
+            SizedBox(
+              height: 10,
+            ),
             Text(
               "OHBOX",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
@@ -15,7 +21,6 @@ class NavigationBar extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-
             SizedBox(
               height: 30,
             ),
