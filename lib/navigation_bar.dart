@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
-
+import 'package:responsive_builder/responsive_builder.dart';
+import 'component/nav_bar_item.dart';
 import 'navigation_logo.dart';
 
 class NavigationBar extends StatelessWidget {
+  const NavigationBar({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenTypeLayout(
+      mobile: NavigationBarMobile(),
+      tablet: NavigationBarTabletDesktop(),
+    );
+  }
+}
+
+class NavigationBarTabletDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,29 +37,34 @@ class NavigationBar extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            _NavBarItem('Episodes'),
+            NavBarItem('Episodes'),
             SizedBox(
               height: 10,
             ),
-            _NavBarItem('About'),
+            NavBarItem('About'),
           ],
         ));
   }
 }
 
-class _NavBarItem extends StatelessWidget {
-  final String title;
-
-  const _NavBarItem(
-    this.title, {
-    Key key,
-  }) : super(key: key);
+class NavigationBarMobile extends StatelessWidget {
+  const NavigationBarMobile({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+    return Container(
+      height: 80,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {},
+          ),
+          NavBarLogo()
+        ],
+      ),
     );
   }
 }

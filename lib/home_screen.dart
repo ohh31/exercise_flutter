@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'component/CallToActionButton.dart';
+import 'component/calltoaction_button.dart';
 import 'home_body.dart';
 import 'main.dart';
 import 'navigation_bar.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
+class HomeScreenDesktop extends StatelessWidget {
+  const HomeScreenDesktop({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,50 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   HomeBody(),
-                  SizedBox(height: 30,),
-                  Center(
-                    child: CallToActionButton('View'),
+                  Expanded(
+                    child: Center(
+                      child: CallToActionButton('View'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HomeScreenMobile extends StatelessWidget {
+  const HomeScreenMobile({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: CenteredView(
+        child: Column(
+          children: <Widget>[
+            NavigationBar(),
+            Divider(
+              thickness: 1,
+              height: 1,
+              color: Colors.black26,
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  HomeBody(),
+                  Expanded(
+                    child: Center(
+                      child: CallToActionButton('View'),
+                    ),
                   ),
                 ],
               ),

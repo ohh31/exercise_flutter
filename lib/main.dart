@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/navigation_bar.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import 'home_screen.dart';
 
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomeScreen());
+        home: ScreenTypeLayout(
+          mobile: HomeScreenMobile(),
+          tablet: HomeScreenDesktop(),
+        ),);
   }
 }
